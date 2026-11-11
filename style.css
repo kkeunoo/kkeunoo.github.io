@@ -97,8 +97,33 @@ body {
 } */
 
 /* Nav 리스트 */
-#main #header .navList li {
+/* #main #header .navList li {
     list-style: none;
+} */
+
+#main #header .navList li {
+    position: relative;
+    cursor: pointer;
+}
+
+#main #header .navList li::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: #CBD5E1;
+
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+#main #header .navList li:hover::after {
+    transform: scaleX(1);
 }
 
 /* Nav 링크 기본 스타일 */
