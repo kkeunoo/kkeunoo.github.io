@@ -2,6 +2,10 @@
 @import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css');
 @import url('https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.0/packages/wanted-sans/fonts/webfonts/variable/complete/WantedSansVariable.min.css');
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     /* border: 1px solid red; */
@@ -44,7 +48,8 @@ body {
 
     padding: 30px;
 
-    background-color: rgba(45, 45, 45, 1);
+    /* background-color: rgba(45, 45, 45, 1); */
+    background-color: #252A30;
     color: white;
 
     /* background-color: lightblue; */
@@ -81,20 +86,115 @@ body {
     list-style: none;
 }
 
-#main #header .navList li {
+/* #main #header .navList li {
     transition: transform 0.3s ease;
 }
 
 #main #header .navList li:hover {
-    color: skyblue;
+    color: #2DD4BF;
     cursor: pointer;
-    transform: scale(1.5);
+    transform: scale(1.2);
+} */
+
+/* Nav 리스트 */
+#main #header .navList li {
+    list-style: none;
+}
+
+/* Nav 링크 기본 스타일 */
+#main #header .navList li a {
+    display: inline-block;
+
+    color: #FFFFFF;
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Nav 링크 Hover */
+#main #header .navList li a:hover {
+    color: #CBD5E1;
+    transform: translateY(-2px);
 }
 
 #main #content {
     width: 100%;
     /* flex: 1; */
     height: 100%;
+}
+
+/* #main #content .items .itemsGithub {
+    width: 50%;
+} */
+
+
+/* GitHub 카드 */
+#main #content .items .itemsGithub {
+    width: 350px;
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 30px;
+
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: inherit;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+
+    cursor: pointer;
+}
+
+/* GitHub 로고 */
+#main #content .itemsGithubImg img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+/* 링크 */
+#main #content .itemsGithubLink {
+    color: #2563EB;
+    text-decoration: none;
+}
+
+#main #content .itemsGithub:hover .itemsGithubLink {
+    text-decoration: underline;
+}
+
+#main #content .itemsGithubLink:hover {
+    text-decoration: underline;
+}
+
+/* 설명 */
+#main #content .itemsGithubText {
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+/* 카드 Hover */
+#main #content .items .itemsGithub:hover {
+    transform: translateY(-4px);
+
+    background-color: #F3F4F6;
+    border-color: #D1D5DB;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 #main #content .items {
@@ -110,7 +210,7 @@ body {
     margin: 40px 0px;
 }
 
-#main #content .items div {
+/* #main #content .items div {
     width: 200px;
     height: 200px;
     
@@ -119,16 +219,47 @@ body {
     align-items: center;
     justify-content: center;
 
-    /* border: 1px solid grey; */
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: transform 0.3s ease;
-}
+} */
 
-#main #content .items div:hover {
+/* #main #content .items div:hover {
     background-color: lightgray;
     opacity: 0.15;
+    border: 1px solid grey;
+    border-radius: 10px;
     transform: scale(1.2);
+} */
+
+#main #content .items > div {
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    border-radius: 10px;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16),
+                0 3px 6px rgba(0,0,0,0.23);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+
+    cursor: pointer;
+}
+
+#main #content .items > div:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+
+    background-color: #F8FAFC;
 }
 
 #main #content .contentTag {
@@ -137,14 +268,35 @@ body {
     font-size: 3rem;
 
     margin-top: 20px;
+
+    scroll-margin-top: 40px;
 }
 
 #main #content .about {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    column-gap: 80px;
+    row-gap: 40px;
 
-    margin: 40px 0px;
+    width: fit-content;
+    margin: 40px auto;
+
+    transform: translateX(50px);
+}
+
+#main #content .about > div {
+    text-align: left;
+}
+
+#main #content .about .aboutTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+#main #content .about .aboutContent {
+    font-size: 0.95rem;
+    color: #64748B;
 }
 
 #main #footer {
@@ -157,29 +309,39 @@ body {
     background-color: rgba(45, 45, 45, 1);
 }
 
-#main #topBtn img {
-    width: 50px;
-    height: 50px;
-}
-
 #main #topBtn {
     position: fixed;
     right: 30px;
     bottom: 30px;
+    z-index: 1000;
+
+    width: 55px;
+    height: 55px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 50px;
-    height: 50px;
-    cursor: pointer;    
+    background-color: #252A30;
+    border: 2px solid #CBD5E1;
+    border-radius: 12px;
 
-    background-color: white;
+    cursor: pointer;
     transition: transform 0.3s ease;
-    /* transition: transform 0.3s; */
+}
+
+#main #topBtn::after {
+    content: "";
+    width: 13px;
+    height: 13px;
+
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    border-radius: 2px;
+
+    transform: translateY(4px) rotate(45deg);
 }
 
 #main #topBtn:hover {
-    transform: scale(1.2);
+    transform: translateY(-4px);
 }
